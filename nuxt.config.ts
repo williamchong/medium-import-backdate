@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     id: undefined,
   },
   i18n: {
+    baseUrl: 'https://medium-backdate.williamchong.cloud',
     locales: [
       {
         code: 'en',
@@ -31,6 +32,10 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Create HTML pages with specific publication dates for Medium import' }
       ]
     }
+  },
+  site: {
+    url: 'https://medium-backdate.williamchong.cloud',
+    name: 'Medium Story Backdating Tool',
   },
   routeRules: {
     '/': { prerender: true }
