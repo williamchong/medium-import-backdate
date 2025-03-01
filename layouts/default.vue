@@ -22,3 +22,12 @@
     </footer>
   </div>
 </template>
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Medium Story Backdating Tool',
+  description: 'Create pages with specific publication dates for Medium import',
+  ogTitle: 'Medium Story Backdating Tool',
+  ogDescription: 'Create pages with specific publication dates for Medium import',
+  ogType: 'website',
+})
+</script>

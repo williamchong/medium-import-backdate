@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
   ],
   gtag: {
-    id: 'G-4ZH943PGVX',
+    id: undefined,
   },
   i18n: {
     baseUrl: 'https://medium-backdate.williamchong.cloud',
@@ -22,16 +22,6 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     lazy: true,
-  },
-  app: {
-    head: {
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-      title: 'Medium Story Backdating Tool',
-      meta: [
-        { name: 'description', content: 'Create HTML pages with specific publication dates for Medium import' }
-      ]
-    }
   },
   site: {
     url: 'https://medium-backdate.williamchong.cloud',
