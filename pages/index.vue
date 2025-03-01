@@ -46,8 +46,7 @@
         <li>
           <button 
             @click="backdatedUrl ? copyToClipboard() : null" 
-            class="text-blue-600 hover:underline cursor-pointer"
-            :class="{'opacity-50 cursor-not-allowed': !backdatedUrl}"
+            :class="{ 'text-blue-600 hover:underline cursor-pointer': !!backdatedUrl }"
           >
             Copy the generated URL
           </button>
