@@ -6,7 +6,7 @@
       <p class="mb-4">This tool generates HTML pages with specific publish dates that can be imported into Medium.com to create backdated stories.</p>
  
       <div class="mb-6">
-        <label for="backdateInput" class="block mb-2 font-medium">Choose Publication Date:</label>
+        <label for="backdateInput" class="block mb-2 font-medium">Choose Your desired Publication Date:</label>
         <input 
           type="date" 
           id="backdateInput"
@@ -44,8 +44,9 @@
       <ol class="list-decimal pl-6 mb-6 space-y-2">
         <li>Select the desired publish date using the date picker above</li>
         <li>Copy the generated link</li>
-        <li>Import the generated url into Medium using the "Import story" option (<a href="https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium" target="_blank" class="text-blue-600 hover:underline">learn how</a>)</li>
-        <li>Medium will preserve the publication date from the imported HTML</li>
+        <li>Go to Medium and click <strong><a href="https://medium.com/p/import" target="_blank" class="text-blue-600 hover:underline">Import a story</a></strong></li>
+        <li>Paste this URL in Medium's URL import field</li>
+        <li>The imported story will have a published date of your choice, replace the placeholder text with your own content. </li>
       </ol>
       
       <div class="bg-blue-50 border border-blue-200 rounded p-4 mb-6">
