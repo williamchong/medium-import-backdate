@@ -10,11 +10,10 @@ Medium.com's import feature respects the `article:published_time` metadata in HT
 
 1. Visit the website
 2. Select your desired publication date using the date picker
-3. Copy the generated link and open it in your browser (format will be `/YYYY-MM-DD`)
-4. Copy the URL from your browser's address bar
-5. Go to Medium.com and use their "Import story" feature to import the URL
-6. Medium will preserve the publication date from the imported HTML
-7. Edit your story's content in Medium as needed
+3. Copy the generated link (format will be `/YYYY-MM-DD`)
+4. Go to Medium.com and use their "Import story" feature to import the URL
+5. Medium will preserve the publication date from the imported HTML
+6. Edit your story's content in Medium as needed
 
 For detailed instructions on how to import a post to Medium, see their official help article:
 [Importing a post to Medium](https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium)
