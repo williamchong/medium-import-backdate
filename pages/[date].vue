@@ -131,20 +131,26 @@ const copyPageUrl = () => {
     })
 }
 
-// Set up page metadata
+const title = isValidDate
+  ? `Backdated Page - ${formattedDate}`
+  : 'Invalid Date - Medium Story Backdating Tool'
+const description = isValidDate
+  ? `Backdated page for Medium import - ${formattedDate}`
+  : 'Invalid date format for Medium Story Backdating Tool'
+
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogType: 'website',
+})
+
 useHead({
-  title: isValidDate
-    ? `Backdated Page - ${formattedDate}`
-    : 'Invalid Date - Medium Story Backdating Tool',
-  meta: [
-    ...(isValidDate ? [
-      // This meta tag is recognized by Medium for import dates
-      { property: 'article:published_time', content: isoDate },
-      { name: 'description', content: `Backdated page for Medium import - ${formattedDate}` }
-    ] : [
-      { name: 'description', content: 'Invalid date format for Medium Story Backdating Tool' }
-    ])
-  ],
+  meta: isValidDate ? [
+    // This meta tag is recognized by Medium for import dates
+    { property: 'article:published_time', content: isoDate },
+  ] : [],
   link: [
     // Set canonical link to the homepage
     { rel: 'canonical', href: '/' }
