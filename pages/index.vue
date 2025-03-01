@@ -43,9 +43,23 @@
       <h2 class="text-xl font-semibold mb-2">How to use:</h2>
       <ol class="list-decimal pl-6 mb-6 space-y-2">
         <li>Select the desired publish date using the date picker above</li>
-        <li>Copy the generated link</li>
+        <li>
+          <button 
+            @click="backdatedUrl ? copyToClipboard() : null" 
+            class="text-blue-600 hover:underline cursor-pointer"
+            :class="{'opacity-50 cursor-not-allowed': !backdatedUrl}"
+          >
+            Copy the generated URL
+          </button>
+          <span v-if="copied" class="ml-2 text-green-600 text-sm">
+            <svg class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Copied!
+          </span>
+        </li>
         <li>Go to Medium and click <strong><a href="https://medium.com/p/import" target="_blank" class="text-blue-600 hover:underline">Import a story</a></strong></li>
-        <li>Paste this URL in Medium's URL import field</li>
+        <li>Paste this link in Medium's import field</li>
         <li>The imported story will have a published date of your choice, replace the placeholder text with your own content. </li>
       </ol>
       
