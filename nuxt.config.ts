@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
   ],
   gtag: {
-    id: undefined,
+    id: 'G-4ZH943PGVX',
   },
   i18n: {
     baseUrl: 'https://medium-backdate.williamchong.cloud',
