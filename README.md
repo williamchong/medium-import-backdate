@@ -1,144 +1,53 @@
-# Nuxt 3 Starter Template
+# Medium Story Backdating Tool
 
-A pre-configured Nuxt 3 starter template with essential features.
+A simple tool that generates HTML pages with specific publication dates for importing into Medium.com. This allows you to publish stories on Medium with custom backdated timestamps.
 
-## Features
+## How It Works
 
-- 🌍 i18n Internationalization
-- 📱 TailwindCSS Integration
-- 🔍 SEO Optimization & Sitemap
-- 📊 Google Analytics Setup
-- ✅ Testing Tools (Vitest)
-- 🔧 ESLint Code Quality
+Medium.com's import feature respects the `article:published_time` metadata in HTML files. This tool generates pages with the proper metadata format that Medium recognizes during import.
 
-## Integrated Modules
+## Usage Instructions
 
-| Module                                                            | Description                                              |
-| ----------------------------------------------------------------- | -------------------------------------------------------- |
-| [@nuxtjs/i18n](https://i18n.nuxtjs.org/)                          | Internationalization support for your Nuxt application   |
-| [@nuxtjs/tailwindcss](https://tailwindcss.nuxtjs.org/)            | TailwindCSS integration with zero configuration          |
-| [@nuxtjs/sitemap](https://sitemap.nuxtjs.org/)                    | Automatically generate sitemap for your Nuxt application |
-| [nuxt-gtag](https://nuxt.com/modules/gtag)                        | Google Analytics 4 integration                           |
-| [@nuxt/test-utils](https://nuxt.com/docs/getting-started/testing) | Official testing utilities for Nuxt applications         |
-| [@nuxt/eslint](https://eslint.nuxt.com/)                          | Official ESLint configuration and tooling                |
+1. Visit the website
+2. Select your desired publication date using the date picker
+3. Copy the generated link and open it in your browser (format will be `/YYYY-MM-DD`)
+4. Copy the URL from your browser's address bar
+5. Go to Medium.com and use their "Import story" feature to import the URL
+6. Medium will preserve the publication date from the imported HTML
+7. Edit your story's content in Medium as needed
 
-## Setup
+For detailed instructions on how to import a post to Medium, see their official help article:
+[Importing a post to Medium](https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium)
+
+## Development Setup
 
 ```bash
-# npm
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Start development server
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Deployment
 
-Build the application for production:
+This project is optimized for Cloudflare Pages. To deploy:
 
-```bash
-# npm
-npm run build
+1. Fork/clone this repository
+2. Connect your repository to Cloudflare Pages
+3. Configure the build settings:
+   - Build command: `npm run build`
+   - Build output directory: `dist`
 
-# pnpm
-pnpm build
+## Technical Details
 
-# yarn
-yarn build
+The tool uses Nuxt 3 with the following features:
 
-# bun
-bun run build
-```
+- TailwindCSS for styling
+- Dynamic routes (`/YYYY-MM-DD`) for date-specific pages
+- Proper metadata generation for Medium import
+- Canonical links pointing to index page
 
-Preview the production build:
+## License
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-## Testing
-
-Run unit tests:
-
-```bash
-# npm
-npm run test
-
-# pnpm
-pnpm test
-
-# yarn
-yarn test
-
-# bun
-bun run test
-```
-
-## Configuration Guide
-
-### Google Analytics
-
-Configure your GA tracking ID in `nuxt.config.ts`:
-
-```ts
-gtag: {
-  id: "YOUR-GA-ID";
-}
-```
-
-### i18n Localization
-
-English is supported by default. Add more languages in `nuxt.config.ts`:
-
-```ts
-i18n: {
-  locales: [
-    {
-      code: "en",
-      language: "en-US",
-      file: "en-US.json",
-    },
-    // Add more languages...
-  ];
-}
-```
-
-For more information:
-
-- [Nuxt 3 Documentation](https://nuxt.com/docs)
-- [Nuxt i18n](https://i18n.nuxtjs.org/)
-- [Nuxt TailwindCSS](https://tailwindcss.nuxtjs.org/)
+MIT

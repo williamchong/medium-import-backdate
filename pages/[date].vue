@@ -1,0 +1,112 @@
+<template>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Backdated Page for Medium Import</h1>
+    
+    <div v-if="isValidDate" class="bg-gray-100 border border-gray-300 rounded p-4 mb-6">
+      <p class="text-lg mb-2">
+        <strong>Publication Date:</strong> {{ formattedDate }}
+      </p>
+      <p class="text-sm text-gray-600 mb-2">
+        <strong>ISO Date:</strong> {{ isoDate }}
+      </p>
+      <p class="mb-2">This page contains the proper metadata for Medium to recognize this date when imported.</p>
+      <p class="mb-0">Copy the URL of this page and import it directly into Medium using the URL import option. <a href="https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium" target="_blank" class="text-blue-600 hover:underline">Learn how to import a story on Medium</a>.</p>
+    </div>
+    
+    <div v-else class="bg-red-100 border border-red-300 rounded p-4 mb-6 text-red-700">
+      <p class="font-bold">Invalid date format</p>
+      <p>The date parameter should be in YYYY-MM-DD format.</p>
+    </div>
+    
+    <div v-if="isValidDate" class="mb-6 prose prose-lg">
+      <h2>Sample Content</h2>
+      <p>You can replace this content with your own after importing into Medium. This is just placeholder text to ensure Medium has something to import.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget urna commodo facilisis. Suspendisse potenti. Sed varius magna a tortor faucibus, in tincidunt leo congue.</p>
+      <h3>Another Heading</h3>
+      <p>Etiam ut nunc auctor, commodo velit a, condimentum elit. Cras scelerisque nibh ut dolor maximus, id pellentesque nibh lobortis. Duis consectetur magna vel ex laoreet, sed dignissim orci semper.</p>
+      <p>Once imported to Medium, you can replace this content with your actual article.</p>
+    </div>
+    
+    <div class="mt-8">
+      <h3 class="font-semibold text-lg mb-3">How to use this page:</h3>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li>Copy the URL of this page (from your browser's address bar)</li>
+        <li>Go to Medium and click <strong>Import a story</strong></li>
+        <li>Paste this URL in Medium's URL import field</li>
+        <li>Medium will import the content and preserve the publication date metadata</li>
+        <li>Edit your story as needed after importing</li>
+      </ol>
+      <p class="mt-4">
+        <a href="https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium" target="_blank" class="bg-green-50 border border-green-200 rounded py-2 px-4 text-green-800 hover:bg-green-100 inline-flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
+          Read Medium's official guide on importing stories
+        </a>
+      </p>
+    </div>
+    
+    <div class="mb-6">
+      <NuxtLink to="/" class="text-blue-600 hover:text-blue-800 underline">
+        ← Back to date selection
+      </NuxtLink>
+    </div>
+  </div>
+</template>
+
+<script setup>
+const route = useRoute()
+const dateParam = route.params.date
+
+// Validate the date parameter format (should be YYYY-MM-DD)
+const dateRegex = /^(\d{4})-(\d{2})-(\d{2})$/
+const match = dateParam.match(dateRegex)
+
+let formattedDate = 'Invalid Date'
+let isoDate = ''
+let isValidDate = false
+let dateObject = null
+
+if (match) {
+  const year = parseInt(match[1])
+  const month = parseInt(match[2]) - 1 // JS months are 0-indexed
+  const day = parseInt(match[3])
+  
+  dateObject = new Date(year, month, day, 12, 0, 0)
+  
+  // Check if date is valid
+  if (!isNaN(dateObject.getTime())) {
+    isValidDate = true
+    isoDate = dateObject.toISOString()
+    formattedDate = dateObject.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }
+}
+
+// Handle invalid dates gracefully
+if (!isValidDate) {
+  formattedDate = 'Invalid Date Format'
+}
+
+// Set up page metadata
+useHead({
+  title: isValidDate 
+    ? `Backdated Page - ${formattedDate}` 
+    : 'Invalid Date - Medium Story Backdating Tool',
+  meta: [
+    ...(isValidDate ? [
+      // This meta tag is recognized by Medium for import dates
+      { property: 'article:published_time', content: isoDate },
+      { name: 'description', content: `Backdated page for Medium import - ${formattedDate}` }
+    ] : [
+      { name: 'description', content: 'Invalid date format for Medium Story Backdating Tool' }
+    ])
+  ],
+  link: [
+    // Set canonical link to the homepage
+    { rel: 'canonical', href: '/' }
+  ]
+})
+</script>
