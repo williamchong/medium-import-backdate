@@ -13,11 +13,16 @@
     <footer class="bg-gray-100 py-4 mt-8">
       <div class="container mx-auto px-4 text-center text-sm text-gray-600">
         <p>
-          Medium Story Backdating Tool |
+          <span class="pr-2">Medium Story Backdating Tool</span> |
           <a
             href="https://github.com/williamchong/medium-import-backdate" target="_blank" rel="noopener"
-            class="underline hover:text-gray-800">
+            class="px-2 underline hover:text-gray-800">
             GitHub Repository
+          </a> |
+          <a
+            href="https://blog.williamchong.cloud/" target="_blank" rel="noopener"
+            class="px-2 underline hover:text-gray-800">
+            Blog
           </a>
         </p>
       </div>
