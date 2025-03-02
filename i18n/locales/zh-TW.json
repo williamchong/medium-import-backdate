@@ -13,8 +13,8 @@
     "howTo": {
       "title": "使用方法：",
       "steps": {
-        "selectDate": "使用上方的日期選擇器選擇所需的出版日期",
-        "copyUrl": "產生的網址",
+        "selectDate": "使用上方的日期選擇器{0}所需的出版日期",
+        "copyUrl": "{0} 產生的網址",
         "goToMedium": "前往 Medium 並點擊 {0}",
         "importUrl": "將此連結貼上到 Medium 的導入網址欄位",
         "result": "完成導入後，文章將具有你選擇的出版日期，請用自己的內容替換佔位文字。"

@@ -41,17 +41,21 @@
       <h2 class="text-xl font-semibold mb-2">{{ $t('index.howTo.title') }}</h2>
       <ol class="list-decimal pl-6 mb-6 space-y-2">
         <li>
-          <button class="text-blue-600 hover:underline hover:text-blue-800" @click="openDatePicker">
-            {{ $t('common.select') }}
-          </button>
-          {{ $t('index.howTo.steps.selectDate') }}
+          <i18n-t keypath="index.howTo.steps.selectDate" scope="global">
+            <button class="text-blue-600 hover:underline hover:text-blue-800" @click="openDatePicker">
+              {{ $t('common.select') }}
+            </button>
+          </i18n-t>
         </li>
         <li>
-          <button
-            :class="{ 'text-blue-600 hover:underline cursor-pointer': !!backdatedUrl }"
-            @click="backdatedUrl ? copyToClipboard() : null">
-            {{ $t('common.copy') }}
-          </button> {{ $t('index.howTo.steps.copyUrl') }}
+          <i18n-t keypath="index.howTo.steps.copyUrl" scope="global">
+            <button
+              :class="{ 'text-blue-600 hover:underline cursor-pointer': !!backdatedUrl }"
+              :disable="!backdatedUrl"
+              @click="backdatedUrl ? copyToClipboard() : null">
+              {{ $t('common.copy') }}
+            </button>
+          </i18n-t>
           <span v-if="copied" class="ml-2 text-green-600 text-sm">
             <svg
               class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
