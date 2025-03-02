@@ -11,6 +11,7 @@
         <label for="backdateInput" class="block mb-2 font-medium">Choose Your desired Publication Date:</label>
         <input
           id="backdateInput" v-model="selectedDate" type="date" class="border rounded px-3 py-2 w-full max-w-xs"
+          :placeholder="(new Date()).toISOString().substr(0, 10)"
           @change="generateBackdatedUrl" >
       </div>
 
@@ -32,6 +33,8 @@
           </a>
         </p>
       </div>
+
+      <hr class="my-6">
 
       <h2 class="text-xl font-semibold mb-2">How to use:</h2>
       <ol class="list-decimal pl-6 mb-6 space-y-2">
