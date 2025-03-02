@@ -14,7 +14,7 @@
       "title": "How to use:",
       "steps": {
         "selectDate": "Select the desired publish date using the date picker above",
-        "copyUrl": "Copy the generated URL",
+        "copyUrl": "the generated URL",
         "goToMedium": "Go to Medium and click {0}",
         "importUrl": "Paste this link in Medium's import field",
         "result": "The imported story will have a published date of your choice, replace the placeholder text with your own content."
