@@ -1,0 +1,86 @@
+{
+  "title": "Medium 文章日期設定工具",
+  "description": "導入特定發布日期的網頁，以在 Medium 上發佈出版時間為特定日期的文章。",
+  "index": {
+    "intro": "此工具可產生特定出版日期的網站連結，導入到 {0} 用來控制文章的出版日期。",
+    "datePicker": {
+      "label": "選擇您想要的出版日期："
+    },
+    "backdatedUrl": {
+      "label": "您的日期頁面連結：",
+      "openLink": "或點擊這裡打開日期頁面 →"
+    },
+    "howTo": {
+      "title": "使用方法：",
+      "steps": {
+        "selectDate": "使用上方的日期選擇器選擇所需的出版日期",
+        "copyUrl": "複製產生的網址",
+        "goToMedium": "前往 Medium 並點擊 {0}",
+        "importUrl": "將此連結貼上到 Medium 的導入網址欄位",
+        "result": "完成導入後，文章將具有你選擇的出版日期，請用自己的內容替換佔位文字。"
+      },
+      "figureCaption": {
+        "importField": "將此連結貼上到 Medium 的導入欄位",
+        "importResult": "完成導入後，文章將具有你選擇的出版日期，請用自己的內容替換佔位文字。"
+      }
+    },
+    "note": {
+      "title": "注意：",
+      "content": "Medium 會保留導入網站的出版日期。此工具產生的網頁具有 Medium 可識別的時間元數據。有關 Medium 導入網站的詳細說明，請訪問 {0}。"
+    }
+  },
+  "backdated": {
+    "title": "Medium 文章日期設定工具日期頁面",
+    "description": "用於 Medium 導入的日期頁面，出版日期為 {date}",
+    "error": {
+      "title": "日期格式無效",
+      "message": "日期參數應為 YYYY-MM-DD 格式。",
+      "description": "Medium 導入的日期格式無效"
+    },
+    "metadata": {
+      "pubDate": "發布日期：",
+      "isoDate": "ISO 日期："
+    },
+    "info": "此頁面含有可讓 Medium 識別出版日期的時間元數據。",
+    "instruction": "複製此頁面的網址，並使用網址導入選項將其直接導入到 Medium。",
+    "generatedBy": "由 {0} 產生",
+    "sampleContent": {
+      "title": "範例內容",
+      "intro": "導入到 Medium 後，您可以用自己的內容替換這些內容。這只是佔位文字，確保 Medium 有內容可導入。",
+      "subheading": "另一個標題",
+      "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget urna commodo facilisis. Suspendisse potenti. Sed varius magna a tortor faucibus, in tincidunt leo congue.",
+      "paragraph2": "Etiam ut nunc auctor, commodo velit a, condimentum elit. Cras scelerisque nibh ut dolor maximus, id pellentesque nibh lobortis. Duis consectetur magna vel ex laoreet, sed dignissim orci semper.",
+      "closing": "導入到 Medium 後，您可以用實際文章替換此內容。"
+    },
+    "howTo": {
+      "title": "如何使用此頁面：",
+      "steps": {
+        "copyUrl": "複製此頁面的網址",
+        "goToMedium": "前往 Medium 並點擊 {0}",
+        "pasteUrl": "將此網址貼上到 Medium 的導入網址欄位",
+        "replace": "導入的文章將具有你選擇的出版日期，請用自己的內容替換佔位文字。"
+      },
+      "guide": "閱讀 Medium 官方關於導入文章的指南",
+      "importStory": "導入文章"
+    },
+    "back": "← 返回首頁"
+  },
+  "layout": {
+    "footer": {
+      "links": {
+        "github": "GitHub 倉庫",
+        "blog": "部落格"
+      }
+    }
+  },
+  "common": {
+    "copy": "複製",
+    "copied": "已複製！"
+  },
+  "error": {
+    "404": "找不到頁面",
+    "general": "發生錯誤",
+    "default": "出了些問題，請再試一次。",
+    "backToHome": "返回首頁"
+  }
+}

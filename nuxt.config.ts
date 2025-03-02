@@ -13,12 +13,22 @@ export default defineNuxtConfig({
   },
   i18n: {
     baseUrl: 'https://medium-backdate.williamchong.cloud',
+    strategy: 'prefix_and_default',
+    detectBrowserLanguage: {
+      useCookie: false,
+      redirectOn: 'root'
+    },
     locales: [
       {
         code: 'en',
         language: 'en-US',
-        file: 'en-US.json'
+        file: 'en-US.json',
       },
+      {
+        code: 'zh',
+        language: 'zh-TW',
+        file: 'zh-TW.json',
+      }
     ],
     defaultLocale: 'en',
     lazy: true,
