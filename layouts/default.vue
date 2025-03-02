@@ -37,4 +37,31 @@ useSeoMeta({
   ogDescription: 'Create pages with specific publication dates for Medium import',
   ogType: 'website',
 })
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Medium Story Backdating Tool',
+        description: 'Create pages with specific publication dates for Medium import',
+        applicationCategory: 'UtilitiesApplication',
+        operatingSystem: 'Any',
+        url: 'https://medium-backdate.williamchong.cloud',
+        author: {
+          '@type': 'Person',
+          name: 'William Chong',
+          url: 'https://blog.williamchong.cloud'
+        },
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD'
+        }
+      })
+    }
+  ]
+})
 </script>
