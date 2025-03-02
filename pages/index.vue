@@ -4,7 +4,7 @@
 
     <div class="max-w-2xl mb-8">
       <p class="mb-4">This tool generates HTML pages with specific publish dates that can be imported into <a
-          href="https://medium.com" target="_blank" class="text-blue-600 hover:underline" rel="noopener">Medium.com</a>
+          href="https://medium.com" target="_blank" class="underline" rel="noopener">Medium.com</a>
         to create backdated stories.</p>
 
       <div class="mb-6">
