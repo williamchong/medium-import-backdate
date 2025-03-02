@@ -43,8 +43,8 @@
           <button
             :class="{ 'text-blue-600 hover:underline cursor-pointer': !!backdatedUrl }"
             @click="backdatedUrl ? copyToClipboard() : null">
-            Copy the generated URL
-          </button>
+            Copy
+          </button> the generated URL
           <span v-if="copied" class="ml-2 text-green-600 text-sm">
             <svg
               class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -54,9 +54,9 @@
             Copied!
           </span>
         </li>
-        <li>Go to Medium and click <strong><a
+        <li>Go to Medium and click <a
               href="https://medium.com/p/import" target="_blank"
-              class="text-blue-600 hover:underline">Import a story</a></strong></li>
+              class="text-blue-600 hover:underline">Import a story</a></li>
         <li>Paste this link in Medium's import field</li>
         <li>The imported story will have a published date of your choice, replace the placeholder text with your own
           content. </li>

@@ -40,20 +40,20 @@
           <button
             class="text-blue-600 hover:underline hover:text-blue-800 inline-flex items-center"
             @click="copyPageUrl">
-            Click to copy the URL of this page
-            <span v-if="copySuccess" class="ml-2 text-green-600 text-sm">
-              <svg
-                class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Copied!
-            </span>
-          </button>
+            Copy
+          </button> the URL of this page
+          <span v-if="copySuccess" class="ml-2 text-green-600 text-sm">
+            <svg
+              class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            Copied!
+          </span>
         </li>
-        <li>Go to Medium and click <strong><a
+        <li>Go to Medium and click <a
               href="https://medium.com/p/import" target="_blank"
-              class="text-blue-600 hover:underline">Import a story</a></strong></li>
+              class="text-blue-600 hover:underline">Import a story</a></li>
         <li>Paste this URL in Medium's URL import field</li>
         <li>The imported story will have a published date of your choice, replace the placeholder text with your own
           content. </li>
