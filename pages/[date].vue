@@ -61,7 +61,7 @@
       <p class="mt-4">
         <a
           href="https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium" target="_blank"
-          class="bg-green-50 border border-green-200 rounded py-2 px-4 text-green-800 hover:bg-green-100 inline-flex items-center">
+          class="bg-blue-50 border border-blue-200 text-blue-700 rounded py-2 px-4 inline-flex items-center">
           <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
