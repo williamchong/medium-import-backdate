@@ -42,7 +42,7 @@
       <ol class="list-decimal pl-6 mb-6 space-y-2">
         <li>
           <button class="text-blue-600 hover:underline hover:text-blue-800" @click="openDatePicker">
-            {{ $t('common.copy') }}
+            {{ $t('common.select') }}
           </button>
           {{ $t('index.howTo.steps.selectDate') }}
         </li>

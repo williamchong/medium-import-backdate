@@ -74,6 +74,7 @@
     }
   },
   "common": {
+    "select": "選擇",
     "copy": "複製",
     "copied": "已複製！"
   },

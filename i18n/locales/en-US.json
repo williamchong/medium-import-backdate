@@ -74,6 +74,7 @@
     }
   },
   "common": {
+    "select": "Select",
     "copy": "Copy",
     "copied": "Copied!"
   },
