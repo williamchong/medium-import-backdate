@@ -87,12 +87,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const selectedDate = ref('')
 const backdatedUrl = ref('')
 const copied = ref(false)
-const urlInput = ref(null)
-const datePickerInput = ref(null)
+const urlInput = ref<HTMLInputElement | null>(null)
+const datePickerInput = ref<HTMLInputElement | null>(null)
 
 function generateBackdatedUrl() {
   if (selectedDate.value) {
@@ -113,30 +113,21 @@ function generateBackdatedUrl() {
   }
 }
 
-function copyToClipboard() {
-  if (backdatedUrl.value) {
-    // Select the text
-    urlInput.value.select()
+async function copyToClipboard() {
+  try {
+    await navigator.clipboard.writeText(backdatedUrl.value)
+    copied.value = true
 
-    // Copy to clipboard
-    try {
-      document.execCommand('copy')
-      copied.value = true
-
-      // Reset the copied state after 2 seconds
-      setTimeout(() => {
-        copied.value = false
-      }, 2000)
-    } catch (err) {
-      console.error('Failed to copy URL: ', err)
-    }
-
-    // Deselect
-    window.getSelection().removeAllRanges()
+    // Reset the copied state after 2 seconds
+    setTimeout(() => {
+      copied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy URL: ', err)
   }
 }
 
 function openDatePicker() {
-  datePickerInput.value.showPicker()
+  datePickerInput.value?.showPicker()
 }
 </script>

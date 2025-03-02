@@ -80,9 +80,9 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute()
-const dateParam = route.params.date
+const dateParam = route.params.date as string
 
 // Validate the date parameter format (should be YYYY-MM-DD)
 const dateRegex = /^(\d{4})-(\d{2})-(\d{2})$/
