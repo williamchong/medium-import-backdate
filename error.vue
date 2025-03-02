@@ -9,7 +9,9 @@
 </template>
 
 <script setup>
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
+  // eslint-disable-next-line vue/require-default-prop
   error: Object
 })
 

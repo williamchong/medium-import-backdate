@@ -9,17 +9,20 @@
 
       <div class="mb-6">
         <label for="backdateInput" class="block mb-2 font-medium">Choose Your desired Publication Date:</label>
-        <input type="date" id="backdateInput" v-model="selectedDate" class="border rounded px-3 py-2 w-full max-w-xs"
-          @change="generateBackdatedUrl" />
+        <input
+          id="backdateInput" v-model="selectedDate" type="date" class="border rounded px-3 py-2 w-full max-w-xs"
+          @change="generateBackdatedUrl" >
       </div>
 
       <div v-if="backdatedUrl" class="mb-6">
         <label class="block mb-2 font-medium">Your Backdated Page Link:</label>
         <div class="flex items-center">
-          <input type="text" v-model="backdatedUrl" readonly class="border rounded-l px-3 py-2 w-full bg-gray-50"
-            ref="urlInput" />
-          <button @click="copyToClipboard"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-r">
+          <input
+            ref="urlInput" v-model="backdatedUrl" type="text" readonly
+            class="border rounded-l px-3 py-2 w-full bg-gray-50" >
+          <button
+            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-r"
+            @click="copyToClipboard">
             {{ copied ? 'Copied!' : 'Copy' }}
           </button>
         </div>
@@ -34,19 +37,22 @@
       <ol class="list-decimal pl-6 mb-6 space-y-2">
         <li>Select the desired publish date using the date picker above</li>
         <li>
-          <button @click="backdatedUrl ? copyToClipboard() : null"
-            :class="{ 'text-blue-600 hover:underline cursor-pointer': !!backdatedUrl }">
+          <button
+            :class="{ 'text-blue-600 hover:underline cursor-pointer': !!backdatedUrl }"
+            @click="backdatedUrl ? copyToClipboard() : null">
             Copy the generated URL
           </button>
           <span v-if="copied" class="ml-2 text-green-600 text-sm">
-            <svg class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            <svg
+              class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
             Copied!
           </span>
         </li>
-        <li>Go to Medium and click <strong><a href="https://medium.com/p/import" target="_blank"
+        <li>Go to Medium and click <strong><a
+              href="https://medium.com/p/import" target="_blank"
               class="text-blue-600 hover:underline">Import a story</a></strong></li>
         <li>Paste this link in Medium's import field</li>
         <li>The imported story will have a published date of your choice, replace the placeholder text with your own

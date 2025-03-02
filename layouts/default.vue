@@ -14,7 +14,8 @@
       <div class="container mx-auto px-4 text-center text-sm text-gray-600">
         <p>
           Medium Story Backdating Tool |
-          <a href="https://github.com/williamchong/medium-import-backdate" target="_blank" rel="noopener"
+          <a
+            href="https://github.com/williamchong/medium-import-backdate" target="_blank" rel="noopener"
             class="underline hover:text-gray-800">
             GitHub Repository
           </a>
