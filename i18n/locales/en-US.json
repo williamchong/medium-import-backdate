@@ -19,6 +19,7 @@
         "importUrl": "Paste this link in Medium's import field",
         "result": "The imported story will have a published date of your choice, replace the placeholder text with your own content."
       },
+      "importStory": "Import a story",
       "figureCaption": {
         "importField": "Paste this link in Medium's import field",
         "importResult": "The imported story will have a published date of your choice, replace the placeholder text with your own content."
@@ -55,7 +56,7 @@
     "howTo": {
       "title": "How to use this page:",
       "steps": {
-        "copyUrl": "Copy the URL of this page",
+        "copyUrl": "{0} the URL of this page",
         "goToMedium": "Go to Medium and click {0}",
         "pasteUrl": "Paste this URL in Medium's URL import field",
         "replace": "The imported story will have a published date of your choice, replace the placeholder text with your own content."

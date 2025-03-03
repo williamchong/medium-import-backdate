@@ -19,6 +19,7 @@
         "importUrl": "將此連結貼上到 Medium 的導入網址欄位",
         "result": "完成導入後，文章將具有你選擇的出版日期，請用自己的內容替換佔位文字。"
       },
+      "importStory": "導入文章",
       "figureCaption": {
         "importField": "將此連結貼上到 Medium 的導入欄位",
         "importResult": "完成導入後，文章將具有你選擇的出版日期，請用自己的內容替換佔位文字。"

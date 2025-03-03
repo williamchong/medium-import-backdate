@@ -54,7 +54,7 @@
         </li>
         <li>
           <i18n-t keypath="backdated.howTo.steps.goToMedium" scope="global">
-            <a href="https://medium.com/p/import" target="_blank" class="text-blue-600 hover:underline">
+            <a href="https://medium.com/p/import" target="_blank" class="text-blue-600 hover:underline" @click="trackImportClick">
               {{ $t('backdated.howTo.importStory') }}
             </a>
           </i18n-t>
@@ -126,18 +126,25 @@ if (!isValidDate) {
 // Copy URL functionality
 const copySuccess = ref(false)
 
-const copyPageUrl = () => {
+async function copyPageUrl() {
   const pageUrl = window.location.href
-  navigator.clipboard.writeText(pageUrl)
-    .then(() => {
-      copySuccess.value = true
-      setTimeout(() => {
-        copySuccess.value = false
-      }, 3000) // Hide success message after 3 seconds
-    })
-    .catch(err => {
-      console.error('Failed to copy URL: ', err)
-    })
+  try {
+    await navigator.clipboard.writeText(pageUrl)
+    copySuccess.value = true
+
+    useTrackEvent('copy_generated_url')
+
+    // Reset the copied state after 2 seconds
+    setTimeout(() => {
+      copySuccess.value = false
+    }, 3000)
+  } catch (err) {
+    console.error('Failed to copy URL: ', err)
+  }
+}
+
+function trackImportClick() {
+  useTrackEvent('click_import_story')
 }
 
 useSeoMeta({

@@ -67,8 +67,12 @@
         </li>
         <li>
           <i18n-t keypath="index.howTo.steps.goToMedium" scope="global">
-            <a href="https://medium.com/p/import" target="_blank" class="text-blue-600 hover:underline">
-              Import a story
+            <a
+              href="https://medium.com/p/import"
+               target="_blank"
+               class="text-blue-600 hover:underline"
+               @click="trackImportClick">
+              {{ $t('index.howTo.importStory') }}
             </a>
           </i18n-t>
         </li>
@@ -126,6 +130,8 @@ function generateBackdatedUrl() {
 
     // Reset the copied state
     copied.value = false
+
+    useTrackEvent('pick_publish_date')
   }
 }
 
@@ -133,6 +139,8 @@ async function copyToClipboard() {
   try {
     await navigator.clipboard.writeText(backdatedUrl.value)
     copied.value = true
+
+    useTrackEvent('copy_generated_url')
 
     // Reset the copied state after 2 seconds
     setTimeout(() => {
@@ -145,5 +153,9 @@ async function copyToClipboard() {
 
 function openDatePicker() {
   datePickerInput.value?.showPicker()
+}
+
+function trackImportClick() {
+  useTrackEvent('click_import_story')
 }
 </script>
