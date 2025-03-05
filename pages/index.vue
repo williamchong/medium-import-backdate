@@ -88,6 +88,12 @@
             <img src="~/assets/import-result.png" alt="Import Result" class="w-full border rounded-lg shadow-md my-4">
           </figure>
         </li>
+        <li>
+          <figure>
+            <figcaption>{{ $t('index.howTo.figureCaption.canonicalSettings') }}</figcaption>
+            <img src="~/assets/medium-settings.png" alt="Advanced Settings" class="w-full border rounded-lg shadow-md my-4">
+          </figure>
+        </li>
       </ol>
 
       <div class="bg-blue-50 border border-blue-200 rounded p-4 mb-6">

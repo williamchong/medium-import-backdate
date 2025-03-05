@@ -15,14 +15,13 @@
       "steps": {
         "selectDate": "Use the date picker above to {0} your desired publish date",
         "copyUrl": "{0} the generated URL",
-        "goToMedium": "Go to Medium and click {0}",
-        "importUrl": "Paste this link in Medium's import field",
-        "result": "The imported story will have a published date of your choice, replace the placeholder text with your own content."
+        "goToMedium": "Go to Medium and click {0}"
       },
       "importStory": "Import a story",
       "figureCaption": {
         "importField": "Paste this link in Medium's import field",
-        "importResult": "The imported story will have a published date of your choice, replace the placeholder text with your own content."
+        "importResult": "The imported story will have a published date of your choice, replace the placeholder text with your own content.",
+        "canonicalSettings": "Remove the canonical link setting in Story Settings => Advanced Settings"
       }
     },
     "note": {
