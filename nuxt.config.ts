@@ -37,9 +37,6 @@ export default defineNuxtConfig({
     url: 'https://medium-backdate.williamchong.cloud',
     name: 'Medium Story Backdating Tool',
   },
-  routeRules: {
-    '/': { prerender: true }
-  },
   nitro: {
     preset: 'cloudflare-pages'
   },
