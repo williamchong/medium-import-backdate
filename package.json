@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "vitest"
+    "test": "vitest",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@nuxt/eslint": "^1.0.1",
@@ -27,7 +28,8 @@
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^16.8.1",
     "playwright-core": "^1.50.1",
-    "typescript": "^5.7.3",
-    "vitest": "^3.0.5"
+    "typescript": "^5.8.3",
+    "vitest": "^3.0.5",
+    "vue-tsc": "^2.1.10"
   }
 }
