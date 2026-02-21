@@ -43,7 +43,7 @@
             @click="copyPageUrl">
             {{ $t('common.copy') }}
           </button> {{ $t('backdated.howTo.steps.copyUrl') }}
-          <span v-if="copySuccess" class="ml-2 text-green-600 text-sm">
+          <span v-if="copied" class="ml-2 text-green-600 text-sm">
             <svg
               class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg">
@@ -85,6 +85,8 @@
 </template>
 
 <script setup lang="ts">
+import { useClipboard } from '@vueuse/core'
+
 const { t } = useI18n()
 const route = useRoute()
 const dateParam = computed(() => route.params.date as string)
@@ -119,24 +121,11 @@ const formattedDate = computed(() => {
   })
 })
 
-// Copy URL functionality
-const copySuccess = ref(false)
+const { copy, copied } = useClipboard({ copiedDuring: 2000 })
 
 async function copyPageUrl() {
-  const pageUrl = window.location.href
-  try {
-    await navigator.clipboard.writeText(pageUrl)
-    copySuccess.value = true
-
-    useTrackEvent('copy_generated_url')
-
-    // Reset the copied state after 2 seconds
-    setTimeout(() => {
-      copySuccess.value = false
-    }, 3000)
-  } catch (err) {
-    console.error('Failed to copy URL: ', err)
-  }
+  await copy(window.location.href)
+  useTrackEvent('copy_generated_url')
 }
 
 function trackImportClick() {

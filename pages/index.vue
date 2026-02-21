@@ -114,11 +114,14 @@
 </template>
 
 <script setup lang="ts">
+import { useClipboard } from '@vueuse/core'
+
 const selectedDate = ref('')
 const backdatedUrl = ref('')
-const copied = ref(false)
 const urlInput = ref<HTMLInputElement | null>(null)
 const datePickerInput = ref<HTMLInputElement | null>(null)
+
+const { copy, copied } = useClipboard({ copiedDuring: 2000 })
 
 function generateBackdatedUrl() {
   if (selectedDate.value) {
@@ -130,27 +133,13 @@ function generateBackdatedUrl() {
     const origin = window.location.origin
     backdatedUrl.value = `${origin}/${formattedDate}`
 
-    // Reset the copied state
-    copied.value = false
-
     useTrackEvent('pick_publish_date')
   }
 }
 
 async function copyToClipboard() {
-  try {
-    await navigator.clipboard.writeText(backdatedUrl.value)
-    copied.value = true
-
-    useTrackEvent('copy_generated_url')
-
-    // Reset the copied state after 2 seconds
-    setTimeout(() => {
-      copied.value = false
-    }, 2000)
-  } catch (err) {
-    console.error('Failed to copy URL: ', err)
-  }
+  await copy(backdatedUrl.value)
+  useTrackEvent('copy_generated_url')
 }
 
 function openDatePicker() {
