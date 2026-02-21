@@ -18,34 +18,33 @@ Medium.com's import feature respects the `article:published_time` metadata in HT
 For detailed instructions on how to import a post to Medium, see their official help article:
 [Importing a post to Medium](https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium)
 
-## Development Setup
+## Development
+
+Requires Node.js >= 20.0.0 (see `.nvmrc`).
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run generate` | Generate static site |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Run TypeScript type checking |
+| `npm run test` | Run tests with Vitest |
+
 ## Deployment
 
-This project is optimized for Cloudflare Pages. To deploy:
+Optimized for Cloudflare Pages. To deploy:
 
 1. Fork/clone this repository
 2. Connect your repository to Cloudflare Pages
 3. Configure the build settings:
    - Build command: `npm run build`
    - Build output directory: `dist`
-
-## Technical Details
-
-The tool uses Nuxt 3 with the following features:
-
-- TailwindCSS for styling
-- Dynamic routes (`/YYYY-MM-DD`) for date-specific pages
-- Proper metadata generation for Medium import
-- Canonical links pointing to index page
 
 ## License
 
