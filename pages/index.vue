@@ -21,7 +21,7 @@
         <label class="block mb-2 font-medium">{{ $t('index.backdatedUrl.label') }}</label>
         <div class="flex items-center">
           <input
-            ref="urlInput" v-model="backdatedUrl" type="text" readonly
+            v-model="backdatedUrl" type="text" readonly
             class="border rounded-l px-3 py-2 w-full bg-gray-50">
           <button
             class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-r"
@@ -118,7 +118,6 @@ import { useClipboard } from '@vueuse/core'
 
 const selectedDate = ref('')
 const backdatedUrl = ref('')
-const urlInput = ref<HTMLInputElement | null>(null)
 const datePickerInput = ref<HTMLInputElement | null>(null)
 
 const { copy, copied } = useClipboard({ copiedDuring: 2000 })
