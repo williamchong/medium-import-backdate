@@ -50,11 +50,11 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      innerHTML : JSON.stringify({
+      innerHTML: () => JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: 'Medium Story Backdating Tool',
-        description: 'Create pages with specific publication dates for Medium import',
+        name: t('title'),
+        description: t('description'),
         applicationCategory: 'UtilitiesApplication',
         operatingSystem: 'Any',
         url: 'https://medium-backdate.williamchong.cloud',
