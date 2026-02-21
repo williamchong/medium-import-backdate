@@ -51,7 +51,7 @@
           <i18n-t keypath="index.howTo.steps.copyUrl" scope="global">
             <button
               :class="{ 'text-blue-600 hover:underline cursor-pointer': !!backdatedUrl }"
-              :disable="!backdatedUrl"
+              :disabled="!backdatedUrl"
               @click="backdatedUrl ? copyToClipboard() : null">
               {{ $t('common.copy') }}
             </button>
@@ -122,12 +122,8 @@ const datePickerInput = ref<HTMLInputElement | null>(null)
 
 function generateBackdatedUrl() {
   if (selectedDate.value) {
-    // Format date as YYYY-MM-DD
-    const dateObj = new Date(selectedDate.value)
-    const year = dateObj.getFullYear()
-    const month = String(dateObj.getMonth() + 1).padStart(2, '0')
-    const day = String(dateObj.getDate()).padStart(2, '0')
-
+    // Parse date parts directly to avoid UTC vs local timezone mismatch
+    const [year, month, day] = selectedDate.value.split('-')
     const formattedDate = `${year}-${month}-${day}`
 
     // Get the current origin (base URL)
