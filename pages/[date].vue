@@ -87,41 +87,37 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const route = useRoute()
-const dateParam = route.params.date as string
+const dateParam = computed(() => route.params.date as string)
 
 // Validate the date parameter format (should be YYYY-MM-DD)
 const dateRegex = /^(\d{4})-(\d{2})-(\d{2})$/
-const match = dateParam.match(dateRegex)
 
-let formattedDate = 'Invalid Date'
-let isoDate = ''
-let isValidDate = false
-let dateObject = null
+const parsedDate = computed(() => {
+  const match = dateParam.value.match(dateRegex)
+  if (!match) return null
 
-if (match) {
   const year = parseInt(match[1])
   const month = parseInt(match[2]) - 1 // JS months are 0-indexed
   const day = parseInt(match[3])
+  const dateObject = new Date(year, month, day, 12, 0, 0)
 
-  dateObject = new Date(year, month, day, 12, 0, 0)
+  if (isNaN(dateObject.getTime())) return null
+  return dateObject
+})
 
-  // Check if date is valid
-  if (!isNaN(dateObject.getTime())) {
-    isValidDate = true
-    isoDate = dateObject.toISOString()
-    formattedDate = dateObject.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
-  }
-}
+const isValidDate = computed(() => parsedDate.value !== null)
 
-// Handle invalid dates gracefully
-if (!isValidDate) {
-  formattedDate = 'Invalid Date Format'
-}
+const isoDate = computed(() => parsedDate.value?.toISOString() ?? '')
+
+const formattedDate = computed(() => {
+  if (!parsedDate.value) return 'Invalid Date Format'
+  return parsedDate.value.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+})
 
 // Copy URL functionality
 const copySuccess = ref(false)
@@ -148,17 +144,17 @@ function trackImportClick() {
 }
 
 useSeoMeta({
-  title: isValidDate ? t('backdated.title') : t('backdated.error.title'),
-  description: isValidDate ? t('backdated.description', { date: formattedDate }) : t('backdated.error.description'),
-  ogTitle: isValidDate ? t('backdated.title') : t('backdated.error.title'),
-  ogDescription: isValidDate ? t('backdated.description', { date: formattedDate }) : t('backdated.error.description'),
+  title: () => isValidDate.value ? t('backdated.title') : t('backdated.error.title'),
+  description: () => isValidDate.value ? t('backdated.description', { date: formattedDate.value }) : t('backdated.error.description'),
+  ogTitle: () => isValidDate.value ? t('backdated.title') : t('backdated.error.title'),
+  ogDescription: () => isValidDate.value ? t('backdated.description', { date: formattedDate.value }) : t('backdated.error.description'),
   ogType: 'website',
 })
 
 useHead({
-  meta: isValidDate ? [
+  meta: () => isValidDate.value ? [
     // This meta tag is recognized by Medium for import dates
-    { property: 'article:published_time', content: isoDate },
+    { property: 'article:published_time', content: isoDate.value },
   ] : [],
   link: [
     // Set canonical link to the homepage
