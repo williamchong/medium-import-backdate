@@ -1,8 +1,8 @@
 {
-  "title": "Medium 文章日期設定工具",
-  "description": "導入特定發布日期的網頁，以在 Medium 上發佈出版時間為特定日期的文章。",
+  "title": "自訂 Medium 文章出版日期",
+  "description": "讓你的 Medium 文章顯示任意出版日期，只需兩分鐘。",
   "index": {
-    "intro": "此工具可產生特定出版日期的網站連結，導入到 {0} 用來控制文章的出版日期。",
+    "intro": "Medium 不允許自訂文章出版日期，但你可以透過導入功能來設定。此工具能產生帶有指定日期的頁面，導入 {0} 後即可控制文章的出版日期。",
     "datePicker": {
       "label": "選擇您想要的出版日期："
     },
@@ -20,13 +20,13 @@
       "importStory": "導入文章",
       "figureCaption": {
         "importField": "將此連結貼上到 Medium 的導入欄位",
-        "importResult": "完成導入後，文章將具有你選擇的出版日期，請用自己的內容替換佔位文字。",
+        "importResult": "完成導入後，文章將具有你選擇的出版日期，請用自己的內容取代範例文字。",
         "canonicalSettings": "在文章設定 => 進階設定內，移除 canonical link 相關的設定"
       }
     },
     "note": {
       "title": "注意：",
-      "content": "Medium 會保留導入網站的出版日期。此工具產生的網頁具有 Medium 可識別的時間元數據。有關 Medium 導入網站的詳細說明，請訪問 {0}。"
+      "content": "Medium 導入外部網頁時，會讀取頁面中的發布日期並套用為文章出版日期。有關導入功能的詳細說明，請參閱 {0}。"
     }
   },
   "backdated": {
@@ -41,16 +41,16 @@
       "pubDate": "發布日期：",
       "isoDate": "ISO 日期："
     },
-    "info": "此頁面含有可讓 Medium 識別出版日期的時間元數據。",
-    "instruction": "複製此頁面的網址，並使用網址導入選項將其直接導入到 Medium。",
+    "info": "此頁面已設定好出版日期，導入 Medium 後會自動套用。",
+    "instruction": "複製此頁面的網址，在 Medium 的導入功能中貼上即可。",
     "generatedBy": "由 {0} 產生",
     "sampleContent": {
       "title": "範例內容",
-      "intro": "導入到 Medium 後，您可以用自己的內容替換這些內容。這只是佔位文字，確保 Medium 有內容可導入。",
+      "intro": "導入到 Medium 後，您可以用自己的內容替換這些內容。這只是範例文字，確保 Medium 有內容可導入。",
       "subheading": "另一個標題",
       "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget urna commodo facilisis. Suspendisse potenti. Sed varius magna a tortor faucibus, in tincidunt leo congue.",
       "paragraph2": "Etiam ut nunc auctor, commodo velit a, condimentum elit. Cras scelerisque nibh ut dolor maximus, id pellentesque nibh lobortis. Duis consectetur magna vel ex laoreet, sed dignissim orci semper.",
-      "closing": "導入到 Medium 後，您可以用實際文章替換此內容。"
+      "closing": "導入 Medium 後，你可以用實際文章取代此內容。"
     },
     "howTo": {
       "title": "如何使用此頁面：",
@@ -58,7 +58,7 @@
         "copyUrl": "複製此頁面的網址",
         "goToMedium": "前往 Medium 並點擊 {0}",
         "pasteUrl": "將此網址貼上到 Medium 的導入網址欄位",
-        "replace": "導入的文章將具有你選擇的出版日期，請用自己的內容替換佔位文字。"
+        "replace": "導入的文章將具有你選擇的出版日期，請用自己的內容取代範例文字。"
       },
       "guide": "閱讀 Medium 官方關於導入文章的指南",
       "importStory": "導入文章"
@@ -68,7 +68,7 @@
   "layout": {
     "footer": {
       "links": {
-        "github": "GitHub 倉庫",
+        "github": "GitHub 原始碼",
         "blog": "部落格"
       }
     }
