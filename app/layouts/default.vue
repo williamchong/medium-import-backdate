@@ -1,37 +1,37 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <header class="bg-gray-800 text-white py-4">
-      <div class="container mx-auto px-4">
-        <NuxtLink to="/" class="text-xl font-bold hover:text-gray-200">{{ $t('title') }}</NuxtLink>
-      </div>
+      <UContainer>
+        <ULink to="/" class="text-xl font-bold hover:text-gray-200">{{ $t('title') }}</ULink>
+      </UContainer>
     </header>
 
-    <main class="flex-grow">
+    <main class="grow">
       <slot />
     </main>
 
     <footer class="bg-gray-100 py-4 mt-8">
-      <div class="container mx-auto px-4 text-center text-sm text-gray-600">
+      <UContainer class="text-center text-sm text-gray-600">
         <p>
           <span class="pr-2">{{ $t('title') }}</span> |
-          <a
-            href="https://github.com/williamchong/medium-import-backdate"
+          <ULink
+            to="https://github.com/williamchong/medium-import-backdate"
             target="_blank"
             rel="noopener"
             class="px-2 underline hover:text-gray-800"
           >
             {{ $t('layout.footer.links.github') }}
-          </a> |
-          <a
-            href="https://blog.williamchong.cloud/"
+          </ULink> |
+          <ULink
+            to="https://blog.williamchong.cloud/"
             target="_blank"
             rel="noopener"
             class="px-2 underline hover:text-gray-800"
           >
             {{ $t('layout.footer.links.blog') }}
-          </a>
+          </ULink>
         </p>
-      </div>
+      </UContainer>
     </footer>
   </div>
 </template>

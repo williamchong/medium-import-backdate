@@ -4,11 +4,29 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     '@nuxt/eslint',
     '@nuxt/test-utils/module',
+    '@nuxt/ui',
     '@nuxtjs/i18n',
     '@nuxtjs/sitemap',
-    '@nuxtjs/tailwindcss',
     '@sentry/nuxt/module'
   ],
+
+  css: ['~/assets/css/main.css'],
+
+  // Keep the UI in light mode; the header/footer use fixed colors
+  colorMode: {
+    preference: 'light',
+  },
+
+  // Bundle the icons we use into the client from the locally installed
+  // @iconify-json/lucide, so the browser doesn't fetch them from the Iconify
+  // API. The server bundle stays at the default 'auto' (= 'remote' on edge),
+  // which @nuxt/icon recommends for workers — bundling locally would ship the
+  // whole collection just to serve two icons.
+  icon: {
+    clientBundle: {
+      scan: true,
+    },
+  },
 
   gtag: {
     id: 'G-4ZH943PGVX',

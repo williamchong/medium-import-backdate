@@ -1,8 +1,8 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <UContainer class="py-8">
     <h1 class="text-3xl font-bold mb-6">{{ $t('backdated.title') }}</h1>
 
-    <div v-if="isValidDate" class="bg-gray-100 border border-gray-300 rounded p-4 mb-6">
+    <UCard v-if="isValidDate" class="mb-6">
       <p class="text-lg mb-2">
         <strong>{{ $t('backdated.metadata.pubDate') }}</strong> {{ formattedDate }}
       </p>
@@ -13,17 +13,21 @@
       <p class="mb-2">{{ $t('backdated.instruction') }}</p>
       <p>
         <i18n-t keypath="backdated.generatedBy" scope="global">
-          <a href="https://medium-backdate.williamchong.cloud" target="_blank" class="text-blue-600 hover:underline">
+          <ULink to="https://medium-backdate.williamchong.cloud" target="_blank" class="text-blue-600 hover:underline">
             {{ $t('title') }}
-          </a>
+          </ULink>
         </i18n-t>
       </p>
-    </div>
+    </UCard>
 
-    <div v-else class="bg-red-100 border border-red-300 rounded p-4 mb-6 text-red-700">
-      <p class="font-bold">{{ $t('backdated.error.title') }}</p>
-      <p>{{ $t('backdated.error.message') }}</p>
-    </div>
+    <UAlert
+      v-else
+      color="error"
+      variant="soft"
+      :title="$t('backdated.error.title')"
+      :description="$t('backdated.error.message')"
+      class="mb-6"
+    />
 
     <div v-if="isValidDate" class="mb-6 prose prose-lg">
       <h2>{{ $t('backdated.sampleContent.title') }}</h2>
@@ -44,44 +48,38 @@
             {{ $t('common.copy') }}
           </button> {{ $t('backdated.howTo.steps.copyUrl') }}
           <span v-if="copied" class="ml-2 text-green-600 text-sm">
-            <svg
-              class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
+            <UIcon name="i-lucide-check" class="w-4 h-4 inline" />
             {{ $t('common.copied') }}
           </span>
         </li>
         <li>
           <i18n-t keypath="backdated.howTo.steps.goToMedium" scope="global">
-            <a href="https://medium.com/p/import" target="_blank" class="text-blue-600 hover:underline" @click="trackImportClick">
+            <ULink to="https://medium.com/p/import" target="_blank" class="text-blue-600 hover:underline" @click="trackImportClick">
               {{ $t('backdated.howTo.importStory') }}
-            </a>
+            </ULink>
           </i18n-t>
         </li>
         <li>{{ $t('backdated.howTo.steps.pasteUrl') }}</li>
         <li>{{ $t('backdated.howTo.steps.replace') }}</li>
       </ol>
       <p class="mt-4">
-        <a
-          href="https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium" target="_blank"
-          class="bg-blue-50 border border-blue-200 text-blue-700 rounded py-2 px-4 inline-flex items-center">
-          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
-            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
-          </svg>
+        <UButton
+          to="https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium"
+          target="_blank"
+          color="info"
+          variant="soft"
+          icon="i-lucide-external-link">
           {{ $t('backdated.howTo.guide') }}
-        </a>
+        </UButton>
       </p>
     </div>
 
     <div class="my-6">
-      <NuxtLink to="/" class="text-blue-600 hover:text-blue-800 underline">
+      <ULink to="/" class="text-blue-600 hover:text-blue-800 underline">
         {{ $t('backdated.back') }}
-      </NuxtLink>
+      </ULink>
     </div>
-  </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">

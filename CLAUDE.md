@@ -11,9 +11,19 @@ See [README.md](README.md) for project overview, usage instructions, and availab
 
 ## Architecture
 
-**Nuxt 4** with TypeScript, TailwindCSS, and `@nuxtjs/i18n` (English + Chinese/Taiwan).
+**Nuxt 4** with TypeScript, **Nuxt UI v4** (Tailwind CSS v4), and `@nuxtjs/i18n` (English + Chinese/Taiwan).
 
 Application code lives under `app/` (Nuxt 4 default `srcDir`); `i18n/`, `server/`, `public/`, and `nuxt.config.ts` stay at the project root.
+
+### UI (Nuxt UI v4)
+
+- Uses `@nuxt/ui` (which bundles and configures Tailwind CSS v4 via its own Vite plugin) — there is no `@nuxtjs/tailwindcss` module or `tailwind.config.js`.
+- `app/assets/css/main.css` is the CSS entry: `@import "tailwindcss"; @import "@nuxt/ui";` (registered via `css` in `nuxt.config.ts`).
+- `app/app.config.ts` sets the theme (`ui.colors.primary: 'blue'`, `neutral: 'slate'`).
+- `app/app.vue` wraps the app in `<UApp>` (toast/tooltip/overlay/locale providers).
+- Color mode is forced to `light` (`colorMode.preference` in `nuxt.config.ts`) because the header/footer use fixed colors.
+- Icons come from `@iconify-json/lucide` (default Lucide set), referenced as `i-lucide-*`.
+- Tailwind v4 note: bare `border` defaults to `currentColor` (not `gray-200`), and `flex-grow`→`grow`.
 
 ### Pages
 
