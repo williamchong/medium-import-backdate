@@ -7,21 +7,23 @@ See [README.md](README.md) for project overview, usage instructions, and availab
 ## Quick Reference
 
 - `npx vitest run path/to/test.ts` - Run a single test file
-- Requires Node.js >= 20.0.0 (see `.nvmrc`)
+- Requires Node.js >= 24.0.0 (see `.nvmrc`)
 
 ## Architecture
 
-**Nuxt 3** with TypeScript, TailwindCSS, and `@nuxtjs/i18n` (English + Chinese/Taiwan).
+**Nuxt 4** with TypeScript, TailwindCSS, and `@nuxtjs/i18n` (English + Chinese/Taiwan).
+
+Application code lives under `app/` (Nuxt 4 default `srcDir`); `i18n/`, `server/`, `public/`, and `nuxt.config.ts` stay at the project root.
 
 ### Pages
 
-- `pages/index.vue` - Date picker UI that generates backdated URLs in `/YYYY-MM-DD` format
-- `pages/[date].vue` - Dynamic route that renders a page with `article:published_time` meta tag for Medium import; validates YYYY-MM-DD format and sets canonical link to homepage
+- `app/pages/index.vue` - Date picker UI that generates backdated URLs in `/YYYY-MM-DD` format
+- `app/pages/[date].vue` - Dynamic route that renders a page with `article:published_time` meta tag for Medium import; validates YYYY-MM-DD format and sets canonical link to homepage
 
 ### Other Key Files
 
-- `layouts/default.vue` - App shell with header, footer, SEO meta, and JSON-LD structured data
-- `error.vue` - Global error page (handles 404 and general errors)
+- `app/layouts/default.vue` - App shell with header, footer, SEO meta, and JSON-LD structured data
+- `app/error.vue` - Global error page (handles 404 and general errors)
 - `i18n/locales/en-US.json`, `i18n/locales/zh-TW.json` - Translation files
 
 ### Analytics & Monitoring

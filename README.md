@@ -20,7 +20,7 @@ For detailed instructions on how to import a post to Medium, see their official 
 
 ## Development
 
-Requires Node.js >= 20.0.0 (see `.nvmrc`).
+Requires Node.js >= 24.0.0 (see `.nvmrc`).
 
 ```bash
 npm install

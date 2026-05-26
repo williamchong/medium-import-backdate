@@ -98,9 +98,12 @@ const parsedDate = computed(() => {
   const match = dateParam.value.match(dateRegex)
   if (!match) return null
 
-  const year = parseInt(match[1])
-  const month = parseInt(match[2]) - 1 // JS months are 0-indexed
-  const day = parseInt(match[3])
+  const [, yearStr, monthStr, dayStr] = match
+  if (!yearStr || !monthStr || !dayStr) return null
+
+  const year = parseInt(yearStr)
+  const month = parseInt(monthStr) - 1 // JS months are 0-indexed
+  const day = parseInt(dayStr)
   const dateObject = new Date(year, month, day, 12, 0, 0)
 
   if (isNaN(dateObject.getTime())) return null
